@@ -5,6 +5,18 @@
   </head>
   <body>
 
+  <div>
+      <div>
+          <span id="curYM"></span>
+      </div>
+
+      <div>
+          <span>일 월 화 수 목 금 토</span>
+          <ul id="dayofweek"></ul>
+      </div>
+
+  </div>
+
 
 
 
@@ -19,7 +31,43 @@
     year = date.getFullYear()
     month = date.getMonth() + 1
     day = date.getDate()
-    dow = date.getDay() //1=월, 2=화, 3=수, 4=목, 5=금, 6=토, 7일
+    dow = date.getDay() //1=월, 2=화, 3=수, 4=목, 5=금, 6=토, 7=일
+
+    let i
+    let arrday = new Array()
+    arrday = [1, 2, 3]
+    console.log(arrday)
+    document.getElementById('dayofweek').innerText = arrday
+
+    if(month) {
+        if(month == 1, 3, 5, 7, 8, 10, 12) { // 31일 까지
+            for(i = 1; i <= 31; i++) {
+               arrday = i
+               console.log(arrday)
+            }
+            document.getElementById('dayofweek').innerText = arrday
+        }else if(month == 4, 6, 9, 11) { // 30일 까지
+            for(i = 1; i <= 30; i++) {
+                arrday = i
+            }
+            document.getElementById('dayofweek').innerText = arrday
+        }else if(month == 2 && year % 4 == 0) { // 29일 까지
+            for(i = 1; i <= 29; i++) {
+                arrday = i
+            }
+            document.getElementById('dayofweek').innerText = arrday
+        }else if(month == 2 && year % 4 != 0) { // 28일 까지
+            for(i = 1; i <= 28; i++) {
+                arrday = i
+            }
+            document.getElementById('dayofweek').innerText = arrday
+        }
+    }
+
+
+
+
+    document.getElementById('curYM').innerText = year + "년 " + month + "월"
 
     console.log(year)
     console.log(month)
