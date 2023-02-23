@@ -21,9 +21,17 @@
           <td align="center">토</td>
       </tr>
       <tr>
-          <td align="center" id="jdates"></td>
+          <td align="center" id="a"></td>
+          <td align="center" id="b"></td>
+          <td align="center" id="c"></td>
+          <td align="center" id="d"></td>
+          <td align="center" id="e"></td>
+          <td align="center" id="f"></td>
+          <td align="center" id="g"></td>
       </tr>
   </table>
+
+  <div align="center" id="dates"></div>
 
 
 
@@ -61,22 +69,25 @@
 
     document.getElementById('curYM').innerText = curyear + "년 " + curmonth + "월"
 
-    let days = [0, 1, 2, 3, 4, 5, 6] //View단 달력 요일에 대한 배열 => 일(0) 월(1) 화(2) 수(3) 목(4) 금(5) 토(6)
-    let dates = new Array(curMonthLastdate) //해당 월 일수에 대한 배열
-    let jdates = new Array()
 
-    for(let x = 0; x < dates.length; x++) {
-        if(x = curMonthFirstday) {
-            jdates[x] = x - (x-1)
-        }else if(x > curMonthFirstday) {
-            jdates[x] = jdates[x-1] + 1
+
+
+    let calendarP = 0 //달의 위치
+    let calendarDate = 0 //달의 일 수
+    let i = 0
+    let jdates = new Array() //달의 일수를 담을 배열
+
+    for(let x = 0; x < monthWeek; x++) {
+        for(let y = 0; y < 7; y++) {
+            if(curMonthFirstday <= calendarP && curMonthLastdate > calendarDate) {
+                calendarDate++
+                jdates[i] = calendarDate
+                i++
+            }
+            calendarP++
         }
+        document.getElementById('dates').innerText = jdates
     }
-    console.log(jdates)
-
-    //break; 활용
-    // document.getElementById('jdates').innerText = jdates
-
 
   </script>
   </body>
