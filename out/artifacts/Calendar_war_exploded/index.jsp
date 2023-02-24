@@ -21,15 +21,15 @@
           <td align="center">토</td>
       </tr>
       <tr>
-          <td align="center" id="jdates"></td>
+          <td align="center" id="sun"></td>
+          <td align="center" id="mon"></td>
+          <td align="center" id="tue"></td>
+          <td align="center" id="wed"></td>
+          <td align="center" id="thu"></td>
+          <td align="center" id="fri"></td>
+          <td align="center" id="sat"></td>
       </tr>
   </table>
-
-
-
-
-
-
 
 
   <script type="text/javascript">
@@ -61,21 +61,54 @@
 
     document.getElementById('curYM').innerText = curyear + "년 " + curmonth + "월"
 
-    let days = [0, 1, 2, 3, 4, 5, 6] //View단 달력 요일에 대한 배열 => 일(0) 월(1) 화(2) 수(3) 목(4) 금(5) 토(6)
-    let dates = new Array(curMonthLastdate) //해당 월 일수에 대한 배열
-    let jdates = new Array()
 
-    for(let x = 0; x < dates.length; x++) {
-        if(x = curMonthFirstday) {
-            jdates[x] = x - (x-1)
-        }else if(x > curMonthFirstday) {
-            jdates[x] = jdates[x-1] + 1
+    let calendarPost = 0 //일자의 위치
+    let calendarDate = 0 //달의 일 수
+    let jdates = new Array(monthWeek)//달의 일수를 담을 배열
+    for (let i = 0; i < jdates.length; i++) {
+        jdates[i] = new Array(7);
+    }
+
+    for(let x = 0; x < monthWeek; x++) { //달의 주 수만큼 반복
+        for(let y = 0; y < 7; y++) { //일~토 까지 반복
+            if(curMonthFirstday > calendarPost) {
+                jdates[x][y] = ''
+            }else if(curMonthFirstday <= calendarPost && curMonthLastdate > calendarDate) {
+                calendarDate++
+                jdates[x][y] = calendarDate
+            }else if (curMonthLastdate < calendarDate) {
+                jdates[x][y] = ''
+            }
+            calendarPost++
         }
     }
-    console.log(jdates)
 
-    //break; 활용
-    // document.getElementById('jdates').innerText = jdates
+    let aCell = document.getElementById('sun');
+    let bCell = document.getElementById('mon');
+    let cCell = document.getElementById('tue');
+    let dCell = document.getElementById('wed');
+    let eCell = document.getElementById('thu');
+    let fCell = document.getElementById('fri');
+    let gCell = document.getElementById('sat');
+    aCell = new Array(monthWeek)
+
+    let cells = [aCell, bCell, cCell, dCell, eCell, fCell, gCell];
+    let cellIndex = 0;
+
+    for (let a = 0; a < monthWeek; a++) {
+        for (let b = 0; b < 7; b++) {
+            let cell = cells[cellIndex];
+            let caldate = jdates[a][b];
+            cell.innerText = caldate;
+            cellIndex++;
+        }
+    }
+
+    console.log(aCell)
+
+
+
+
 
 
   </script>
