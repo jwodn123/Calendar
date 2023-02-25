@@ -29,6 +29,7 @@
           <td align="center" id="fri"></td>
           <td align="center" id="sat"></td>
       </tr>
+
   </table>
 
 
@@ -90,7 +91,6 @@
     let eCell = document.getElementById('thu');
     let fCell = document.getElementById('fri');
     let gCell = document.getElementById('sat');
-    aCell = new Array(monthWeek)
 
     let cells = [aCell, bCell, cCell, dCell, eCell, fCell, gCell];
     let cellIndex = 0;
@@ -104,7 +104,8 @@
         }
     }
 
-    console.log(aCell)
+
+
 
 
 
