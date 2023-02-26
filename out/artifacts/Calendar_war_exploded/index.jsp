@@ -29,10 +29,75 @@
           <td align="center" id="fri"></td>
           <td align="center" id="sat"></td>
       </tr>
+<%--<tr>
+          <td align="center" id="sun2"></td>
+          <td align="center" id="mon2"></td>
+          <td align="center" id="tue2"></td>
+          <td align="center" id="wed2"></td>
+          <td align="center" id="thu2"></td>
+          <td align="center" id="fri"></td>
+          <td align="center" id="sat"></td>
+      </tr>
+<tr>
+          <td align="center" id="sun"></td>
+          <td align="center" id="mon"></td>
+          <td align="center" id="tue"></td>
+          <td align="center" id="wed"></td>
+          <td align="center" id="thu"></td>
+          <td align="center" id="fri"></td>
+          <td align="center" id="sat"></td>
+      </tr>
+<tr>
+          <td align="center" id="sun"></td>
+          <td align="center" id="mon"></td>
+          <td align="center" id="tue"></td>
+          <td align="center" id="wed"></td>
+          <td align="center" id="thu"></td>
+          <td align="center" id="fri"></td>
+          <td align="center" id="sat"></td>
+      </tr>
+<tr>
+          <td align="center" id="sun"></td>
+          <td align="center" id="mon"></td>
+          <td align="center" id="tue"></td>
+          <td align="center" id="wed"></td>
+          <td align="center" id="thu"></td>
+          <td align="center" id="fri"></td>
+          <td align="center" id="sat"></td>
+      </tr>
+<tr>
+          <td align="center" id="sun"></td>
+          <td align="center" id="mon"></td>
+          <td align="center" id="tue"></td>
+          <td align="center" id="wed"></td>
+          <td align="center" id="thu"></td>
+          <td align="center" id="fri"></td>
+          <td align="center" id="sat"></td>
+      </tr>--%>
+
   </table>
 
 
   <script type="text/javascript">
+    /*  let selectedMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1, 0, 0, 0)
+const grid = [
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null]
+]
+
+let date = 1;
+grid.forEach((week, weeki) => {
+    week.forEach((day, dayi) => {
+        if( weeki === 0 && dayi < selectedMonth.getDay() ) { return }
+        grid[weeki][dayi] = date
+    })
+})
+console.log(date)*/
+
 
     // 1월, 3월, 5월, 7월, 8월, 10월, 12월 => 31일
     // 4월, 6월, 9월, 11월 => 30일
@@ -83,19 +148,20 @@
         }
     }
 
-    let aCell = document.getElementById('sun');
-    let bCell = document.getElementById('mon');
-    let cCell = document.getElementById('tue');
-    let dCell = document.getElementById('wed');
-    let eCell = document.getElementById('thu');
-    let fCell = document.getElementById('fri');
-    let gCell = document.getElementById('sat');
-    aCell = new Array(monthWeek)
 
-    let cells = [aCell, bCell, cCell, dCell, eCell, fCell, gCell];
+
+
     let cellIndex = 0;
 
     for (let a = 0; a < monthWeek; a++) {
+        let aCell = document.getElementById('sun');
+        let bCell = document.getElementById('mon');
+        let cCell = document.getElementById('tue');
+        let dCell = document.getElementById('wed');
+        let eCell = document.getElementById('thu');
+        let fCell = document.getElementById('fri');
+        let gCell = document.getElementById('sat');
+        let cells = [aCell, bCell, cCell, dCell, eCell, fCell, gCell];
         for (let b = 0; b < 7; b++) {
             let cell = cells[cellIndex];
             let caldate = jdates[a][b];
@@ -104,7 +170,8 @@
         }
     }
 
-    console.log(aCell)
+
+
 
 
 
