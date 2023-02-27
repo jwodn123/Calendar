@@ -34,19 +34,16 @@
 
           curDay = date.getDay() //시작 요일
           curMonth = date.getMonth() //현재 월
+          monthWeek = Math.ceil((date.getDay()+monthday[date.getMonth()]) / 7) //월의 주 수
           document.querySelector('#date').innerText = date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월'
           document.querySelectorAll('table tr').forEach((tr, index) => { tr.remove() })
 
-          for(let x = 0; x <= monthWeek; x++) {
-
+          for(let x = 0; x < monthWeek; x++) {
               const tr = document.createElement("tr")
               table.appendChild(tr) // => <table><tr></tr></table>
-
-
               for(let y = 0; y < 7; y++) {
                   const td = document.createElement("td")
                   tr.append(td)
-                  //첫째주 이면서 y가 curDay(시작 요일)보다 작을 때
                   if(x == 0 && y < curDay) {
                       arr[y] = null
                   }else if(date.getMonth() != curMonth) {
@@ -54,7 +51,7 @@
                   }else {
                       const index = date.getDate()
                       td.innerText = index // => <tr><td></td></tr>
-                      date.setDate(date.getDate() + 1) // => ??
+                      date.setDate(date.getDate() + 1)
                   }
               }
           }
@@ -64,17 +61,13 @@
 
       document.getElementById('prev').addEventListener('click', (e) => {
           date.setDate(1)
-          console.log(date.getMonth())
           date.setMonth(date.getMonth() - 1 - 1)
-          console.log(date.getMonth())
           initMonth()
       })
 
       document.getElementById('next').addEventListener('click', (e) => {
           date.setDate(1)
-          console.log(date.getMonth())
           date.setMonth(date.getMonth() + 1 - 1)
-          console.log(date.getMonth())
           initMonth()
       })
 
