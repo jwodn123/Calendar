@@ -50,8 +50,17 @@
                       arr[y] = null
                   }else {
                       const index = date.getDate()
-                      td.innerText = index // => <tr><td></td></tr>
+                      td.innerText = index
                       date.setDate(date.getDate() + 1)
+                      if(date.getFullYear() == curDate.getFullYear() && date.getMonth()+1 == curDate.getMonth()+1 && date.getDate() == curDate.getDate()) {
+                          td.style.backgroundColor = '#C85A5A'
+                      }
+                      if(!null) {
+                          td.addEventListener('click', (e) => {
+                              let title = prompt('제목을 입력하세요', '');
+                              td.innerText = index + title;
+                          })
+                      }
                   }
               }
           }
