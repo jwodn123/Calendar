@@ -6,7 +6,24 @@
       <style>
           table tr td {
               border: 1px solid;
+              width: 90px;
+              height: 90px;
+              vertical-align: top;
           }
+
+          table {
+              border-spacing: 0px;
+              border-style: none;
+              padding: 0px;
+              margin-right: 5px;
+          }
+
+          td {
+              border-spacing: 0px;
+              border-style: none;
+              padding: 0px;
+          }
+
       </style>
   </head>
   <body>
@@ -57,8 +74,10 @@
                       }
                       if(!null) {
                           td.addEventListener('click', (e) => {
-                              let title = prompt('제목을 입력하세요', '');
-                              td.innerText = index + title;
+                              let title = prompt('스케줄을 입력하세요', '');
+                              const schDiv = document.createElement("div")
+                              schDiv.innerText = title
+                              console.log(schDiv)
                           })
                       }
                   }
