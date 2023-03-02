@@ -43,6 +43,7 @@
       let curMonthLastdate = monthday[date.getMonth()]
       let monthWeek = Math.ceil((curDay+curMonthLastdate)/7) //월의 주 수
       let arr = [null, null, null, null, null, null, null]
+      let schArr = []
 
       const table = document.querySelector('table')
 
@@ -74,10 +75,15 @@
                       }
                       if(!null) {
                           td.addEventListener('click', (e) => {
-                              let title = prompt('스케줄을 입력하세요', '');
-                              const schDiv = document.createElement("div")
-                              schDiv.innerText = title
-                              console.log(schDiv)
+
+                              let title = prompt('스케줄을 입력하세요', '')
+                              let monthIndex = date.getMonth()
+                              let monthArr = schArr[monthIndex] || []
+                              monthArr.push([title])
+                              schArr[monthIndex] = monthArr
+
+                              console.log(schArr)
+                              console.log(monthIndex)
                           })
                       }
                   }
