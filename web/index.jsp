@@ -82,8 +82,23 @@
                               monthArr.push([title])
                               schArr[monthIndex] = monthArr
 
-                              console.log(schArr)
-                              console.log(monthIndex)
+                              schArr.forEach((monthschArr, index) => {
+                                  if(index == date.getMonth()) {
+                                      const li = document.createElement("li")
+                                      monthschArr.forEach(sch => {
+                                          schList.appendChild(li)
+                                          li.innerText = sch.title
+
+                                          li.addEventListener('click', (e) => {
+                                              if(li.textContent == sch.title) {
+                                                  td.style.backgroundColor = '#A4ECF8'
+                                              }else {
+
+                                              }
+                                          })
+                                      })
+                                  }
+                              })
                           })
                       }
                   }
