@@ -89,12 +89,15 @@
                                           schList.appendChild(li)
                                           li.innerText = sch.title
 
-                                          li.addEventListener('click', (e) => {
-                                              if(li.textContent == sch.title) {
-                                                  td.style.backgroundColor = '#A4ECF8'
-                                              }else {
+                                          let prevLi = null
 
+                                          li.addEventListener('click', (e) => {
+
+                                              if(li.textContent == sch.title) {
+                                                  td.style.background = '#A4ECF8'
+                                                  prevLi = li.textContent
                                               }
+
                                           })
                                       })
                                   }
