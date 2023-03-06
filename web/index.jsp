@@ -93,10 +93,13 @@
 
                                           li.addEventListener('click', (e) => {
 
-                                              if(li.textContent == sch.title) {
-                                                  td.style.background = '#A4ECF8'
-                                                  prevLi = li.textContent
+                                              const clickedDate = e.target.getAttribute('data-date')
+                                              const matchingTd = document.querySelector(`td[data-date="${clickedDate}"]`)
+                                              if (matchingTd) {
+                                                  matchingTd.style.background = '#A4ECF8'
                                               }
+                                              console.log(li.textContent)
+                                              console.log(prevLi)
 
                                           })
                                       })
