@@ -90,42 +90,52 @@
                                           li.innerText = sch.title
 
                                           let prevLi = null
+                                          let prevTd = null
 
                                           li.addEventListener('click', (e) => {
-
-                                              const clickedDate = e.target.getAttribute('data-date')
-                                              const matchingTd = document.querySelector(`td[data-date="${clickedDate}"]`)
-                                              if (matchingTd) {
-                                                  matchingTd.style.background = '#A4ECF8'
+                                              if(prevLi == null && li.textContent == sch.title) {
+                                                  td.style.background = '#A4ECF8'
+                                                  prevLi = li.textContent
+                                                  prevTd = td.textContent
                                               }
-                                              console.log(li.textContent)
+
+                                              if(prevLi && prevTd) {
+                                                  td.style.background = ''
+                                              }
+
+
                                               console.log(prevLi)
+                                              console.log(prevTd)
 
-                                          })
+
+
+
+
+                                          });
                                       })
-                                  }
-                              })
-                          })
-                      }
-                  }
-              }
-          }
-      }
+}
+})
+})
+}
+}
+}
+}
+}
 
-      initMonth()
+initMonth()
 
-      document.getElementById('prev').addEventListener('click', (e) => {
-          date.setDate(1)
-          date.setMonth(date.getMonth() - 1 - 1)
-          initMonth()
-      })
+document.getElementById('prev').addEventListener('click', (e) => {
+date.setDate(1)
+date.setMonth(date.getMonth() - 1 - 1)
+initMonth()
+})
 
-      document.getElementById('next').addEventListener('click', (e) => {
-          date.setDate(1)
-          date.setMonth(date.getMonth() + 1 - 1)
-          initMonth()
-      })
+document.getElementById('next').addEventListener('click', (e) => {
+date.setDate(1)
+date.setMonth(date.getMonth() + 1 - 1)
+initMonth()
+})
 
-  </script>
-  </body>
+</script>
+</body>
 </html>
