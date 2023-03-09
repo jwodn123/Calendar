@@ -93,24 +93,12 @@
                                           let prevTd = null
 
                                           li.addEventListener('click', (e) => {
-                                              if(prevLi == null && li.textContent == sch.title) {
-                                                  td.style.background = '#A4ECF8'
-                                                  prevLi = li.textContent
-                                                  prevTd = td.textContent
+                                              if (prevTd !== null) {
+                                                  prevTd.style.background = ''
                                               }
-
-                                              if(prevLi && prevTd) {
-                                                  td.style.background = ''
-                                              }
-
-
-                                              console.log(prevLi)
-                                              console.log(prevTd)
-
-
-
-
-
+                                              td.style.background = '#A4ECF8'
+                                              prevLi = li
+                                              prevTd = td
                                           });
                                       })
 }
